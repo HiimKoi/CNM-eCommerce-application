@@ -53,7 +53,7 @@ Class Zone extends DBConnection {
 		extract($_POST);
 		$qry = $this->conn->query("DELETE FROM barangay_list where id = $id");
 		if($qry){
-			$this->settings->set_flashdata('success','zone successfully deleted.');
+			$this->settings->set_flashdata('Thành công','xóa thành công');
 			return 1;
 		}else{
 			return false;

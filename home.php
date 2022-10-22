@@ -48,10 +48,10 @@
                             <h5 class="fw-bolder"><?php echo $row['title'] ?></h5>
                             <!-- Product price-->
                             <?php foreach($inv as $k=> $v): ?>
-                                <span><b>Price: </b><?php echo $v ?></span>
+                                <span><b>Giá: </b><?php echo $v ?></span>
                             <?php endforeach; ?>
                         </div>
-                        <p class="m-0"><small>By: <?php echo $row['author'] ?></small></p>
+                        <p class="m-0"><small>Nguyên liệu: <?php echo $row['author'] ?></small></p>
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

@@ -30,7 +30,7 @@
             error:err=>{
                 console.log()
                 alert("An error occured")
-            },
+            },s
             success:function(resp){
                 if(resp){
                     $('#uni_modal .modal-title').html($title)

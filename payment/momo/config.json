@@ -1,0 +1,7 @@
+{
+  "partnerCode": "MOMO4LKI20220928",
+  "accessKey": "R7az6JeP2KmJfvCs",
+  "secretKey": "E5ZtgpZp5O5RMnfNwrPVPLQqkly22bZj",
+  "apiEndpoint": "https://test-payment.momo.vn/v2/gateway/api/create",
+  "baseUrl": "http://localhost/perfume_shop/"
+}

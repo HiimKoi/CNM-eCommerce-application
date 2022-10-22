@@ -4,8 +4,8 @@
         <div class="card rounded-0">
             <div class="card-body">
                 <div class="w-100 justify-content-between d-flex">
-                    <h4><b>Orders</b></h4>
-                    <a href="./?p=edit_account" class="btn btn btn-dark btn-flat"><div class="fa fa-user-cog"></div> Manage Account</a>
+                    <h4><b>Lịch sử mua hàng</b></h4>
+                    <a href="./?p=edit_account" class="btn btn btn-dark btn-flat"><div class="fa fa-user-cog"></div>Quản lí tài khoản</a>
                 </div>
                     <hr class="border-warning">
                     <table class="table table-stripped text-dark">
@@ -19,10 +19,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>DateTime</th>
-                                <th>Transaction ID</th>
-                                <th>Amount</th>
-                                <th>Order Status</th>
+                                <th>Ngày</th>
+                                <th>Mã hóa đơn</th>
+                                <th>Tổng</th>
+                                <th>Trạng thái</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,15 +38,15 @@
                                     <td><?php echo number_format($row['amount']) ?> </td>
                                     <td class="text-center">
                                             <?php if($row['status'] == 0): ?>
-                                                <span class="badge badge-light text-dark">Pending</span>
+                                                <span class="badge badge-light text-dark">Chờ xác nhận</span>
                                             <?php elseif($row['status'] == 1): ?>
-                                                <span class="badge badge-primary">Packed</span>
+                                                <span class="badge badge-primary">Đang đóng gói</span>
                                             <?php elseif($row['status'] == 2): ?>
-                                                <span class="badge badge-warning">Out for Delivery</span>
+                                                <span class="badge badge-warning">Đơn hàng đã xuất kho</span>
                                             <?php elseif($row['status'] == 3): ?>
-                                                <span class="badge badge-success">Delivered</span>
+                                                <span class="badge badge-success">Đã giao hàng</span>
                                             <?php else: ?>
-                                                <span class="badge badge-danger">Cancelled</span>
+                                                <span class="badge badge-danger">Đã Hủy</span>
                                             <?php endif; ?>
                                         </td>
                                     </tr>
@@ -71,8 +71,8 @@
                 end_loader()
             },
             success:function(resp){
-                if(typeof resp == 'object' && resp.status == 'success'){
-                    alert_toast("Book cancelled successfully",'success')
+                if(typeof resp == 'object' && resp.status == 'Thành công'){
+                    alert_toast("Đã hủy đơn hàng thành công",'Thành công')
                     setTimeout(function(){
                         location.reload()
                     },2000)

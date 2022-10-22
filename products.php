@@ -144,7 +144,7 @@ elseif(isset($_GET['s'])){
                     </div>
                 </div>
                 <div class="tab-pane fade" id="details">
-                    <h3 class="text-center"><?php echo $title. " Category" ?></h3>
+                    <h3 class="text-center"><?php echo $title. " " ?></h3>
                     <hr>
                     <div>
                         <?php echo isset($cat_description) ? stripslashes(html_entity_decode($cat_description)) : '' ?>

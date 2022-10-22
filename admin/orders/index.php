@@ -59,17 +59,17 @@
                             </td>
 							<td class="text-center">
                                 <?php if($row['status'] == 0): ?>
-                                    <span class="badge badge-light">Pending</span>
+                                    <span class="badge badge-light">Chờ xác nhận</span>
                                 <?php elseif($row['status'] == 1): ?>
-                                    <span class="badge badge-primary">Packed</span>
+                                    <span class="badge badge-primary">Đang đóng gói</span>
 								<?php elseif($row['status'] == 2): ?>
-                                    <span class="badge badge-warning">Out for Delivery</span>
+                                    <span class="badge badge-warning">Đơn hàng đã xuất kho</span>
 								<?php elseif($row['status'] == 3): ?>
-                                    <span class="badge badge-success">Delivered</span>
+                                    <span class="badge badge-success">Đã giao hàng</span>
 								<?php elseif($row['status'] == 5): ?>
-                                    <span class="badge badge-success">Picked Up</span>
+                                    <span class="badge badge-success">Đã nhận</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger">Cancelled</span>
+                                    <span class="badge badge-danger">Đã Hủy</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
@@ -80,7 +80,7 @@
 				                  <div class="dropdown-menu" role="menu">
 				                    <a class="dropdown-item" href="?page=orders/view_order&id=<?php echo $row['id'] ?>">View Order</a>
 									<?php if($row['paid'] == 0 && $row['status'] != 4): ?>
-				                    <a class="dropdown-item pay_order" href="javascript:void(0)"  data-id="<?php echo $row['id'] ?>">Mark as Paid</a>
+				                    <a class="dropdown-item pay_order" href="javascript:void(0)"  data-id="<?php echo $row['id'] ?>">Đã thanh toán</a>
 									<?php endif; ?>
 				                    <div class="dropdown-divider"></div>
 				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>

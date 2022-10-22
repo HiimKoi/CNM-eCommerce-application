@@ -38,14 +38,14 @@
                         <?php endif; ?>
                         <?php endwhile; ?>
                         <?php if($count_cats > 3): ?>
-                        <li class="nav-item"><a class="nav-link" href="./?p=view_categories">All Categories</a></li>
                         <?php endif; ?>
-                        <li class="nav-item"><a class="nav-link" href="./?p=about">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./?p=about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./?p=view_categories">Tất cả danh mục</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./?p=about">Liên Hệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./?p=about">Giới Thiệu</a></li>
                     </ul>
                     <div class="d-flex align-items-center">
                       <?php if(!isset($_SESSION['userdata']['id'])): ?>
-                        <button class="btn btn-outline-dark ml-2" id="login-btn" type="button">Login</button>
+                        <button class="btn btn-outline-dark ml-2" id="login-btn" type="button"></button>
                         <?php else: ?>
                         <a class="text-dark mr-2 nav-link" href="./?p=cart">
                             <i class="bi-cart-fill me-1"></i>
@@ -62,7 +62,7 @@
                             </span>
                         </a>
                         
-                            <a href="./?p=my_account" class="text-dark  nav-link"><b> Hi, <?php echo $_settings->userdata('firstname')?>!</b></a>
+                            <a href="./?p=my_account" class="text-dark  nav-link"><b> Xin chào, <?php echo $_settings->userdata('firstname')?>!</b></a>
                             <a href="logout.php" class="text-dark  nav-link"><i class="fa fa-sign-out-alt"></i></a>
                         <?php endif; ?>
                     </div>

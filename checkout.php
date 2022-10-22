@@ -11,7 +11,7 @@ endwhile;
     <div class="container">
         <div class="card rounded-0">
             <div class="card-body"></div>
-            <h3 class="text-center"><b>Checkout</b></h3>
+            <h3 class="text-center"><b>MUA HÀNG</b></h3>
             <hr class="border-dark">
             <form action="#" id="place_order" method="POST">
                 <input type="hidden" name="amount" value="<?php echo $total ?>">
@@ -46,9 +46,8 @@ endwhile;
                             <h4 class="text-muted">Phương thức thanh toán</h4>
                             <div class="d-flex w-100 justify-content-between">
                                 <button class="btn btn-flat btn-dark">Thanh toán khi nhận hàng</button>
-                                <span id="paypal-button"></span>
+                                <button id="momo-payment" onclick="payWithMomo()" type="button">Momo</button>
                             </div>
-                            <button id="momo-payment" onclick="payWithMomo()" type="button">Momo</button>
                         </div>
                     </div>
                 </div>

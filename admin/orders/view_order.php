@@ -83,22 +83,22 @@ if($order->num_rows > 0){
                 <?php 
                     switch($status){
                         case '0':
-                            echo '<span class="badge badge-light text-dark">Pending</span>';
+                            echo '<span class="badge badge-light text-dark">Chờ xác nhận</span>';
 	                    break;
                         case '1':
-                            echo '<span class="badge badge-primary">Packed</span>';
+                            echo '<span class="badge badge-primary">Đang đóng gói</span>';
 	                    break;
                         case '2':
-                            echo '<span class="badge badge-warning">Out for Delivery</span>';
+                            echo '<span class="badge badge-warning">Đơn hàng đã xuất kho</span>';
 	                    break;
                         case '3':
-                            echo '<span class="badge badge-success">Delivered</span>';
+                            echo '<span class="badge badge-success">Đã giao hàng</span>';
 	                    break;
                         case '5':
-                            echo '<span class="badge badge-success">Picked Up</span>';
+                            echo '<span class="badge badge-success"Đã nhận</span>';
 	                    break;
                         default:
-                            echo '<span class="badge badge-danger">Cancelled</span>';
+                            echo '<span class="badge badge-danger">Đã Hủy</span>';
 	                    break;
                     }
                 ?>

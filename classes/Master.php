@@ -55,11 +55,11 @@ class Master extends DBConnection
 			$save = $this->conn->query($sql);
 		}
 		if ($save) {
-			$resp['status'] = 'success';
+			$resp['status'] = 'Thành công';
 			if (empty($id))
-				$this->settings->set_flashdata('success', "New Category successfully saved.");
+				$this->settings->set_flashdata('Thành công', "Danh mục mới đã được lưu thành công.");
 			else
-				$this->settings->set_flashdata('success', "Category successfully updated.");
+				$this->settings->set_flashdata('Thành công', "Đã cập nhật danh mục thành công.");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error . "[{$sql}]";
@@ -72,7 +72,7 @@ class Master extends DBConnection
 		$del = $this->conn->query("DELETE FROM `categories` where id = '{$id}'");
 		if ($del) {
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success', "Category successfully deleted.");
+			$this->settings->set_flashdata('Thành công', "Danh mục đã được xóa thành công.");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -157,7 +157,7 @@ class Master extends DBConnection
 			return $this->capture_err();
 		if ($check > 0) {
 			$resp['status'] = 'failed';
-			$resp['msg'] = "Book already exist.";
+			$resp['msg'] = "Perfume already exist.";
 			return json_encode($resp);
 			exit;
 		}
@@ -180,11 +180,11 @@ class Master extends DBConnection
 					}
 				}
 			}
-			$resp['status'] = 'success';
+			$resp['status'] = 'Thành công';
 			if (empty($id))
 				$this->settings->set_flashdata('Thành công', "Đã lưu sản phẩm");
 			else
-				$this->settings->set_flashdata('success', "Đã cập nhật sản phẩm");
+				$this->settings->set_flashdata('Thành công', "Đã cập nhật sản phẩm");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error . "[{$sql}]";
@@ -197,7 +197,7 @@ class Master extends DBConnection
 		$del = $this->conn->query("DELETE FROM `products` where id = '{$id}'");
 		if ($del) {
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('Thành công', "Đã xóa sản phẩm");
+			$this->settings->set_flashdata('Thành công', "Đã xóa sản phẩm thành công");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['error'] = $this->conn->error;
@@ -302,9 +302,9 @@ class Master extends DBConnection
 		if ($save) {
 			$resp['status'] = 'success';
 			if (empty($id))
-				$this->settings->set_flashdata('success', "Account successfully created.");
+				$this->settings->set_flashdata('Thành công', "Tài khoản đã được tạo thành công.");
 			else
-				$this->settings->set_flashdata('success', "Account successfully updated.");
+				$this->settings->set_flashdata('Thành công', "Tài khoản đã cập nhật thành công.");
 			foreach ($_POST as $k => $v) {
 				$this->settings->set_userdata($k, $v);
 			}
@@ -400,7 +400,7 @@ class Master extends DBConnection
 			return $this->capture_err();
 		if ($delete) {
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata('success', "Order successfully deleted");
+			$this->settings->set_flashdata('Thành công', "Order successfully deleted");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error . "[{$sql}]";
@@ -459,7 +459,7 @@ class Master extends DBConnection
 		$update = $this->conn->query("UPDATE `orders` set `status` = '$status' where id = '{$id}' ");
 		if ($update) {
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata("success", " Order status successfully updated.");
+			$this->settings->set_flashdata("Thành công", " Order status successfully updated.");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error;
@@ -543,7 +543,7 @@ class Master extends DBConnection
 		$notifyurl =
 			$array['baseUrl'] . "?p=checkout";
 		// Lưu ý: link notifyUrl không phải là dạng localhost
-		$extraData = "merchantName=MoMo Partner";
+		$extraData = "merchantName=Perfume Shop";
 		$requestType = "captureMoMoWallet";
 		$amount = $_POST['amount'];
 
