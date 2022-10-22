@@ -9,7 +9,7 @@
                 <option value="2" <?php echo $_GET['status'] == 2 ? "selected" : '' ?>>Đơn hàng đã xuất kho</option>
                 <option value="5" <?php echo $_GET['status'] == 5 ? "selected" : '' ?>>Đã nhận</option>
                 <option value="3" <?php echo $_GET['status'] == 3 ? "selected" : '' ?>>Đã giao hàng</option>
-                <option value="4" <?php echo $_GET['status'] == 4 ? "selected" : '' ?>>Đã Hủy</option>
+                <option value="4" <?php echo $_GET['status'] == 4 ? "selected" : '' ?>>Đã hủy</option>
             </select>
         </div>
     </form>
@@ -26,15 +26,15 @@
                 dataType:"json",
                 error:err=>{
                     console.log(err)
-                    alert_toast("Đã xảy ra lỗi ","Lỗi")
-                    end_loader()s
+                    alert_toast("An error occured","error")
+                    end_loader()
                 },
                 success:function(resp){
-                    if(!!resp.status && resp.status =='Thành công'){
+                    if(!!resp.status && resp.status =='success'){
                         location.reload()
                     }else{
                         console.log(resp)
-                        alert_toast("Đã xảy ra lỗi ","Lỗi")
+                        alert_toast("An error occured","error")
                         end_loader()
                     }
                 }

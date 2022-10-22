@@ -472,7 +472,7 @@ class Master extends DBConnection
 		$update = $this->conn->query("UPDATE `orders` set `paid` = '1' where id = '{$id}' ");
 		if ($update) {
 			$resp['status'] = 'success';
-			$this->settings->set_flashdata("success", " Order payment status successfully updated.");
+			$this->settings->set_flashdata("Thành công", " Order payment status successfully updated.");
 		} else {
 			$resp['status'] = 'failed';
 			$resp['err'] = $this->conn->error;

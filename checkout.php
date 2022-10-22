@@ -24,12 +24,12 @@ endwhile;
                         </div>
                         <div class="form-group d-flex pl-2">
                             <div class="custom-control custom-radio">
-                                <input class="custom-control-input custom-control-input-primary" type="radio" id="customRadio4" name="order_type" value="2" checked="">
-                                <label for="customRadio4" class="custom-control-label">Đến cửa hàng</label>
+                                <input class="custom-control-input custom-control-input-primary custom-control-input-outline" type="radio" id="customRadio5" name="order_type" value="1" checked="">
+                                <label for="customRadio5" class="custom-control-label">Giao hàng tận nơi</label>
                             </div>
                             <div class="custom-control custom-radio ml-3">
-                                <input class="custom-control-input custom-control-input-primary custom-control-input-outline" type="radio" id="customRadio5" name="order_type" value="1">
-                                <label for="customRadio5" class="custom-control-label">Giao hàng tận nơi</label>
+                                <input class="custom-control-input custom-control-input-primary" type="radio" id="customRadio4" name="order_type" value="2" >
+                                <label for="customRadio4" class="custom-control-label">Đến cửa hàng</label>
                             </div>
                         </div>
                         <div class="form-group col address-holder">
