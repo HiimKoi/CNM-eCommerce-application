@@ -40,7 +40,7 @@
                         <?php if($count_cats > 3): ?>
                         <?php endif; ?>
                         <li class="nav-item"><a class="nav-link" href="./?p=view_categories">Tất cả danh mục</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./?p=about">Liên Hệ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./?p=privacy_policy">Chính Sách</a></li>
                         <li class="nav-item"><a class="nav-link" href="./?p=about">Giới Thiệu</a></li>
                     </ul>
                     <div class="d-flex align-items-center">
