@@ -60,7 +60,7 @@ endwhile;
 
 <script>
     function payment_online() {
-        $('[name="payment_method"]').val("Online Payment")
+        $('[name="payment_method"]').val("Thanh toán Online")
         $('[name="paid"]').val(1)
         callAPI()
     }
