@@ -7,7 +7,7 @@
 	<div class="card-header">
 		<h3 class="card-title">List of Packages</h3>
 		<div class="card-tools">
-			<a href="?page=packages/manage" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=packages/manage" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -25,7 +25,7 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Created</th>
+						<th>Ngày tạo</th>
 						<th>Package</th>
 						<th>Description</th>
 						<th>Status</th>
