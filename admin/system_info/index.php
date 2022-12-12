@@ -21,7 +21,7 @@
 <div class="col-lg-12">
 	<div class="card card-outline card-primary">
 		<div class="card-header">
-			<h5 class="card-title">System Information</h5>
+			<h5 class="card-title">Thông tin hệ thống</h5>
 			<!-- <div class="card-tools">
 				<a class="btn btn-block btn-sm btn-default btn-flat border-primary new_department" href="javascript:void(0)"><i class="fa fa-plus"></i> Add New</a>
 			</div> -->
@@ -30,37 +30,37 @@
 			<form action="" id="system-frm">
 				<div id="msg" class="form-group"></div>
 				<div class="form-group">
-					<label for="name" class="control-label">System Name</label>
+					<label for="name" class="control-label">Tên Website</label>
 					<input type="text" class="form-control form-control-sm" name="name" id="name" value="<?php echo $_settings->info('name') ?>">
 				</div>
 				<div class="form-group">
-					<label for="short_name" class="control-label">System Short Name</label>
+					<label for="short_name" class="control-label">Tên viết tắt của Website</label>
 					<input type="text" class="form-control form-control-sm" name="short_name" id="short_name" value="<?php echo  $_settings->info('short_name') ?>">
 				</div>
 			<div class="form-group">
-				<label for="" class="control-label">About Us</label>
+				<label for="" class="control-label">Giới thiệu</label>
 	             <textarea name="about_us" id="" cols="30" rows="2" class="form-control summernote"><?php echo  is_file(base_app.'about.html') ? file_get_contents(base_app.'about.html') : "" ?></textarea>
 			</div>
 			<div class="form-group">
-				<label for="" class="control-label">Privacy Policy</label>
+				<label for="" class="control-label">Chính sách bán hàng</label>
 	             <textarea name="privacy_policy" id="" cols="30" rows="2" class="form-control summernote"><?php echo  is_file(base_app.'privacy_policy.html') ? file_get_contents(base_app.'privacy_policy.html') : "" ?></textarea>
 			</div>
 			
 			<div class="form-group">
-				<label for="" class="control-label">System Logo</label>
+				<label for="" class="control-label">Logo</label>
 				<div class="custom-file">
 	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img" onchange="displayImg(this,$(this))">
-	              <label class="custom-file-label" for="customFile">Choose file</label>
+	              <label class="custom-file-label" for="customFile">Tệp</label>
 	            </div>
 			</div>
 			<div class="form-group d-flex justify-content-center">
 				<img src="<?php echo validate_image($_settings->info('logo')) ?>" alt="" id="cimg" class="img-fluid img-thumbnail">
 			</div>
 			<div class="form-group">
-				<label for="" class="control-label">Website Cover</label>
+				<label for="" class="control-label">Bìa trang Website</label>
 				<div class="custom-file">
 	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="cover" onchange="displayImg2(this,$(this))">
-	              <label class="custom-file-label" for="customFile">Choose file</label>
+	              <label class="custom-file-label" for="customFile">Tệp</label>
 	            </div>
 			</div>
 			<div class="form-group d-flex justify-content-center">
@@ -71,7 +71,7 @@
 		<div class="card-footer">
 			<div class="col-md-12">
 				<div class="row">
-					<button class="btn btn-sm btn-primary" form="system-frm">Update</button>
+					<button class="btn btn-sm btn-primary" form="system-frm">Cập nhật</button>
 				</div>
 			</div>
 		</div>

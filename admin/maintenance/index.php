@@ -46,20 +46,20 @@
 							<td ><p class="truncate-1 m-0"><?php echo $row['description'] ?></p></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success">Active</span>
+                                    <span class="badge badge-success">Sẵn Sàng</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger">Inactive</span>
+                                    <span class="badge badge-danger">Không sẵn Sàng</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Tùy chọns
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=packages/manage&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Edit</a>
+				                    <a class="dropdown-item" href="?page=packages/manage&id=<?php echo $row['id'] ?>"><span class="fa fa-edit text-primary"></span> Sửa</a>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
 							</td>
 						</tr>
@@ -73,7 +73,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this package permanently?","delete_package",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn xóa không?","delete_package",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})

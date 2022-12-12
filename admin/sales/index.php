@@ -9,24 +9,24 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
 ?>
 <div class="card card-primary card-outline">
     <div class="card-header">
-        <h5 class="card-title">Sales Report</h5>
+        <h5 class="card-title">Báo cáo bán hàng</h5>
     </div>
     <div class="card-body">
         <form id="filter-form">
             <div class="row align-items-end">
                 <div class="form-group col-md-3">
-                    <label for="date_start">Date Start</label>
+                    <label for="date_start">Từ</label>
                     <input type="date" class="form-control form-control-sm" name="date_start" value="<?php echo date("Y-m-d",strtotime($date_start)) ?>">
                 </div>
                 <div class="form-group col-md-3">
-                    <label for="date_start">Date End</label>
+                    <label for="date_start">Đến</label>
                     <input type="date" class="form-control form-control-sm" name="date_end" value="<?php echo date("Y-m-d",strtotime($date_end)) ?>">
                 </div>
                 <div class="form-group col-md-1">
-                    <button class="btn btn-flat btn-block btn-primary btn-sm"><i class="fa fa-filter"></i> Filter</button>
+                    <button class="btn btn-flat btn-block btn-primary btn-sm"><i class="fa fa-filter"></i> Lọc</button>
                 </div>
                 <div class="form-group col-md-1">
-                    <button class="btn btn-flat btn-block btn-success btn-sm" type="button" id="printBTN"><i class="fa fa-print"></i> Print</button>
+                    <button class="btn btn-flat btn-block btn-success btn-sm" type="button" id="printBTN"><i class="fa fa-print"></i> In</button>
                 </div>
             </div>
         </form>
@@ -34,8 +34,8 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
         <div id="printable">
             <div>
                 <h4 class="text-center m-0"><?php echo $_settings->info('name') ?></h4>
-                <h3 class="text-center m-0"><b>Sales Report</b></h3>
-                <p class="text-center m-0">Date Between <?php echo $date_start ?> and <?php echo $date_end ?></p>
+                <h3 class="text-center m-0"><b>Báo cáo bán hàng</b></h3>
+                <p class="text-center m-0">Thời gian  <?php echo $date_start ?> đến <?php echo $date_end ?></p>
                 <hr>
             </div>
             <table class="table table-bordered">
@@ -50,11 +50,11 @@ $date_end = isset($_GET['date_end']) ? $_GET['date_end'] :  date("Y-m-d") ;
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Date Time</th>
-                        <th>Perfume</th>
-                        <th>Client</th>
-                        <th>QTY</th>
-                        <th>Amount</th>
+                        <th>Ngày</th>
+                        <th>Sản phẩm</th>
+                        <th>Khách hàng</th>
+                        <th>Số lượng</th>
+                        <th>Tổng</th>
                     </tr>
                 </thead>
                 <tbody>

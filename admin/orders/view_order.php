@@ -106,7 +106,7 @@ if($order->num_rows > 0){
                 <?php if(!isset($_GET['view'])): ?>
                 <div class="col-3"></div>
                 <div class="col">
-                    <button type="button" id="update_status" class="btn btn-sm btn-flat btn-primary">Update Status</button>
+                    <button type="button" id="update_status" class="btn btn-sm btn-flat btn-primary">Cập nhật</button>
                 </div>
                 <?php endif; ?>
                 
@@ -116,7 +116,7 @@ if($order->num_rows > 0){
 </div>
 <?php if(isset($_GET['view'])): ?>
 <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
 </div>
 <style>
     #uni_modal>.modal-dialog>.modal-content>.modal-footer{

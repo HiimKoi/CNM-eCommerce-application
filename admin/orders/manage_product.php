@@ -10,13 +10,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 ?>
 <div class="card card-outline card-info">
 	<div class="card-header">
-		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Create New " ?> Product</h3>
+		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Create New " ?> Sản phẩm</h3>
 	</div>
 	<div class="card-body">
 		<form action="" id="product-form">
 			<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
             <div class="form-group">
-				<label for="category_id" class="control-label">Category</label>
+				<label for="category_id" class="control-label">Loại</label>
                 <select name="category_id" id="category_id" class="custom-select select2" required>
                 <option value=""></option>
                 <?php
@@ -28,7 +28,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </select>
 			</div>
             <div class="form-group">
-				<label for="sub_category_id" class="control-label">Sub Category</label>
+				<label for="sub_category_id" class="control-label">Hãng sản xuất</label>
                 <select name="sub_category_id" id="sub_category_id" class="custom-select" required>
                 <option value="" selected="" disabled="">Select Category First</option>
                 <?php

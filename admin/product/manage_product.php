@@ -10,13 +10,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 ?>
 <div class="card card-outline card-info">
 	<div class="card-header">
-		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Create New " ?> Product</h3>
+		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Thêm " ?> Sản phẩm</h3>
 	</div>
 	<div class="card-body">
 		<form action="" id="product-form">
 			<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
             <div class="form-group">
-				<label for="category_id" class="control-label">Category</label>
+				<label for="category_id" class="control-label">Loại sản phẩm</label>
                 <select name="category_id" id="category_id" class="custom-select select2" required>
                 <option value=""></option>
                 <?php
@@ -28,9 +28,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </select>
 			</div>
             <div class="form-group">
-				<label for="sub_category_id" class="control-label">Sub Category</label>
+				<label for="sub_category_id" class="control-label">Hãng sản xuất</label>
                 <select name="sub_category_id" id="sub_category_id" class="custom-select" required>
-                <option value="" selected="" disabled="">Select Category First</option>
+                <option value="" selected="" disabled="">Vui lòng nhập loại sản phẩm</option>
                 <?php
                     $qry = $conn->query("SELECT * FROM `sub_categories` order by sub_category asc");
                     $sub_categories = array();
@@ -41,12 +41,12 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </select>
 			</div>
 			<div class="form-group">
-				<label for="title" class="control-label">Perfume Title</label>
+				<label for="title" class="control-label">Tên sản phẩm</label>
                 <textarea name="title" id="" cols="30" rows="2" class="form-control form no-resize"><?php echo isset($title) ? $title : ''; ?></textarea>
 			</div>
 			<div class="form-group">
-            <label for="author" class="control-label">Authors</label>
-                <small>(<i>Use comma (,) for seperating the name of Authors</i>)</small>
+            <label for="author" class="control-label">Nguyên liệu</label>
+                <small>(<i>(Sử dụng dấu phẩy (,) để ngăn cách tên của thành phần)</i>)</small>
                 <textarea name="author" id="" cols="30" rows="2" class="form-control form no-resize"><?php echo isset($author) ? $author : ''; ?></textarea>
 			</div>
             <div class="form-group">
@@ -54,17 +54,17 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <textarea name="description" id="" cols="30" rows="2" class="form-control form no-resize summernote"><?php echo isset($description) ? $description : ''; ?></textarea>
 			</div>
             <div class="form-group">
-				<label for="status" class="control-label">Status</label>
+				<label for="status" class="control-label">Trạng thái</label>
                 <select name="status" id="status" class="custom-select selevt">
-                <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-                <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
+                <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Sẵn Sàng</option>
+                <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không sẵn sàng</option>
                 </select>
 			</div>
             <div class="form-group">
-				<label for="" class="control-label">Images</label>
+				<label for="" class="control-label">Ảnh sản phẩm</label>
 				<div class="custom-file">
 	              <input type="file" class="custom-file-input rounded-circle" id="customFile" name="img[]" multiple accept="image/*" onchange="displayImg(this,$(this))">
-	              <label class="custom-file-label" for="customFile">Choose file</label>
+	              <label class="custom-file-label" for="customFile">Tệp</label>
 	            </div>
 			</div>
             <?php 
@@ -92,8 +92,8 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 		</form>
 	</div>
 	<div class="card-footer">
-		<button class="btn btn-flat btn-primary" form="product-form">Save</button>
-		<a class="btn btn-flat btn-default" href="?page=product">Cancel</a>
+		<button class="btn btn-flat btn-primary" form="product-form">Lưu</button>
+		<a class="btn btn-flat btn-default" href="?page=product">Hủy</a>
 	</div>
 </div>
 <script>
@@ -116,7 +116,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
             dataType:"json",
             error:err=>{
                 console.log(err)
-                alert_toast("An error occured while deleting an Image","error");
+                alert_toast("Đã xảy ra lỗi khi xóa Hình ảnh","error");
                 end_loader()
             },
             success:function(resp){
@@ -125,10 +125,10 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                     $('[data-path="'+$path+'"]').closest('.img-item').hide('slow',function(){
                         $('[data-path="'+$path+'"]').closest('.img-item').remove()
                     })
-                    alert_toast("Image Successfully Deleted","success");
+                    alert_toast("Đã xóa hình ảnh thành công","success");
                 }else{
                     console.log(resp)
-                    alert_toast("An error occured while deleting an Image","error");
+                    alert_toast("Đã xảy ra lỗi khi xóa Hình ảnh","error");
                 }
                 end_loader()
             }
@@ -137,7 +137,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
     var sub_categories = $.parseJSON('<?php echo json_encode($sub_categories) ?>');
 	$(document).ready(function(){
         $('.rem_img').click(function(){
-            _conf("Are sure to delete this image permanently?",'delete_img',["'"+$(this).attr('data-path')+"'"])
+            _conf("Bạn chắc chắn để xóa hình ảnh này?",'delete_img',["'"+$(this).attr('data-path')+"'"])
         })
        
         $('#category_id').change(function(){
