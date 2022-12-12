@@ -10,13 +10,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 ?>
 <div class="card card-outline card-info">
 	<div class="card-header">
-		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Create New " ?> Sub Catgory</h3>
+		<h3 class="card-title"><?php echo isset($id) ? "Cập nhật ": "Create New " ?> Hãng nước hoa</h3>
 	</div>
 	<div class="card-body">
 		<form action="" id="category-form">
 			<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
             <div class="form-group">
-				<label for="parent_id" class="control-label">Parent Category</label>
+				<label for="parent_id" class="control-label">Loại nước hoa</label>
                 <select name="parent_id" id="parent_id" class="custom-select select2">
                 <option value=""></option>
                 <?php
@@ -28,26 +28,26 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </select>
 			</div>
 			<div class="form-group">
-				<label for="sub_category" class="control-label">Sub Category Name</label>
+				<label for="sub_category" class="control-label">Tên hãng</label>
                 <textarea name="sub_category" id="" cols="30" rows="2" class="form-control form no-resize"><?php echo isset($sub_category) ? $sub_category : ''; ?></textarea>
 			</div>
             <div class="form-group">
-				<label for="description" class="control-label">Description</label>
+				<label for="description" class="control-label">Chi tiết</label>
                 <textarea name="description" id="" cols="30" rows="2" class="form-control form no-resize summernote"><?php echo isset($description) ? $description : ''; ?></textarea>
 			</div>
             <div class="form-group">
-				<label for="status" class="control-label">Status</label>
+				<label for="status" class="control-label">Trạng thái</label>
                 <select name="status" id="status" class="custom-select selevt">
-                <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Active</option>
-                <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Inactive</option>
+                <option value="1" <?php echo isset($status) && $status == 1 ? 'selected' : '' ?>>Sẵn Sàng</option>
+                <option value="0" <?php echo isset($status) && $status == 0 ? 'selected' : '' ?>>Không sẵn sàng</option>
                 </select>
 			</div>
 			
 		</form>
 	</div>
 	<div class="card-footer">
-		<button class="btn btn-flat btn-primary" form="category-form">Save</button>
-		<a class="btn btn-flat btn-default" href="?page=maintenance/sub_category">Cancel</a>
+		<button class="btn btn-flat btn-primary" form="category-form">Lưu</button>
+		<a class="btn btn-flat btn-default" href="?page=maintenance/sub_category">Hủy</a>
 	</div>
 </div>
 <script>

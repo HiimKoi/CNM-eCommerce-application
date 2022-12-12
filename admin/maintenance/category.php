@@ -5,9 +5,9 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Categories</h3>
+		<h3 class="card-title">Danh sách loại sản phẩm</h3>
 		<div class="card-tools">
-			<a href="?page=maintenance/manage_category" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
+			<a href="?page=maintenance/manage_category" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Tạo</a>
 		</div>
 	</div>
 	<div class="card-body">
@@ -24,12 +24,12 @@
 				</colgroup>
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>Date Created</th>
-						<th>Category</th>
-						<th>Description</th>
-						<th>Status</th>
-						<th>Action</th>
+					<th>#</th>
+						<th>Ngày tạo</th>
+						<th>Loại</th>
+						<th>Chi tiết</th>
+						<th>Trạng thái</th>
+						<th>Tùy chọn</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -46,14 +46,14 @@
 							<td ><p class="truncate-1 m-0"><?php echo $row['description'] ?></p></td>
 							<td class="text-center">
                                 <?php if($row['status'] == 1): ?>
-                                    <span class="badge badge-success">Active</span>
+                                    <span class="badge badge-success">Sẵn sàng</span>
                                 <?php else: ?>
-                                    <span class="badge badge-danger">Inactive</span>
+                                    <span class="badge badge-danger">Không sẵn sàng</span>
                                 <?php endif; ?>
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+								 	Tùy chọn
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
@@ -73,7 +73,7 @@
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this category permanently?","delete_category",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn xóa loại sản phẩm này vĩnh viễn không?","delete_category",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})

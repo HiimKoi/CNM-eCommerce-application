@@ -6,7 +6,7 @@
               <span class="info-box-icon bg-light elevation-1"><i class="fas fa-book-open"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Perfume</span>
+                <span class="info-box-text">Tổng sản phẩm</span>
                 <span class="info-box-number">
                   <?php 
                     $inv = $conn->query("SELECT sum(quantity) as total FROM inventory ")->fetch_assoc()['total'];
@@ -26,7 +26,7 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-th-list"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Pending Orders</span>
+                <span class="info-box-text">Đơn đặt hàng</span>
                 <span class="info-box-number">
                   <?php 
                     $pending = $conn->query("SELECT sum(id) as total FROM `orders` where status = '0' ")->fetch_assoc()['total'];
@@ -48,7 +48,7 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Total Sales</span>
+                <span class="info-box-text">Tổng doanh thu</span>
                 <span class="info-box-number">
                 <?php 
                     $sales = $conn->query("SELECT sum(amount) as total FROM `orders` where status = '0' ")->fetch_assoc()['total'];
@@ -86,11 +86,11 @@
       </div>
       <a class="carousel-control-prev" href="#tourCarousel" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
+          <span class="sr-only">Trước</span>
       </a>
       <a class="carousel-control-next" href="#tourCarousel" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
+          <span class="sr-only">Sau</span>
       </a>
   </div>
 </div>

@@ -10,13 +10,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
 ?>
 <div class="card card-outline card-info">
 	<div class="card-header">
-		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Create New " ?> Inventory</h3>
+		<h3 class="card-title"><?php echo isset($id) ? "Update ": "Tạo mới " ?> Sản phẩm</h3>
 	</div>
 	<div class="card-body">
 		<form action="" id="inventory-form">
 			<input type="hidden" name ="id" value="<?php echo isset($id) ? $id : '' ?>">
 			<div class="form-group">
-				<label for="product_id" class="control-label">Product</label>
+				<label for="product_id" class="control-label">Sản phẩm</label>
                 <select name="product_id" id="product_id" class="custom-select select2" required>
                     <option value=""></option>
                     <?php
@@ -31,18 +31,18 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 </select>
 			</div>
             <div class="form-group">
-				<label for="quantity" class="control-label">Beginning Quanatity</label>
+				<label for="quantity" class="control-label">Số lượng</label>
                 <input type="number" class="form-control form" required name="quantity" value="<?php echo isset($quantity) ? $quantity : '' ?>">
             </div>
             <div class="form-group">
-				<label for="price" class="control-label">Price</label>
+				<label for="price" class="control-label">Giá</label>
                 <input type="number" step="any" class="form-control form" required name="price" value="<?php echo isset($price) ? $price : '' ?>">
             </div>
 		</form>
 	</div>
 	<div class="card-footer">
-		<button class="btn btn-flat btn-primary" form="inventory-form">Save</button>
-		<a class="btn btn-flat btn-default" href="?page=inventory">Cancel</a>
+		<button class="btn btn-flat btn-primary" form="inventory-form">Lưu</button>
+		<a class="btn btn-flat btn-default" href="?page=inventory">Hủy</a>
 	</div>
 </div>
 <script>

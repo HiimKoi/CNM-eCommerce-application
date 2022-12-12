@@ -10,7 +10,7 @@
 <?php endif;?>
 <div class="card card-outline card-primary">
 	<div class="card-header">
-		<h3 class="card-title">List of Orders</h3>
+		<h3 class="card-title">Danh sách đơn đặt hàng</h3>
 		<!-- <div class="card-tools">
 			<a href="?page=order/manage_order" class="btn btn-flat btn-primary"><span class="fas fa-plus"></span>  Create New</a>
 		</div> -->
@@ -31,12 +31,12 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date Order</th>
-						<th>Client</th>
-						<th>Total Amount</th>
-						<th>Paid</th>
-						<th>Status</th>
-						<th>Action</th>
+						<th>Ngày đặt hàng</th>
+						<th>Khách hàng</th>
+						<th>Tổng cộng</th>
+						<th>Thanh toán</th>
+						<th>Trạng thái</th>
+						<th>Tùy chọn</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -52,9 +52,9 @@
 							<td class="text-right"><?php echo number_format($row['amount']) ?></td>
 							<td class="text-center">
                                 <?php if($row['paid'] == 0): ?>
-                                    <span class="badge badge-light">No</span>
+                                    <span class="badge badge-light">Chưa thanh tóa</span>
                                 <?php else: ?>
-                                    <span class="badge badge-success">Yes</span>
+                                    <span class="badge badge-success">Đã thanh toán</span>
                                 <?php endif; ?>
                             </td>
 							<td class="text-center">
@@ -74,16 +74,16 @@
                             </td>
 							<td align="center">
 								 <button type="button" class="btn btn-flat btn-default btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown">
-				                  		Action
+				                  		Tùy chọn
 				                    <span class="sr-only">Toggle Dropdown</span>
 				                  </button>
 				                  <div class="dropdown-menu" role="menu">
-				                    <a class="dropdown-item" href="?page=orders/view_order&id=<?php echo $row['id'] ?>">View Order</a>
+				                    <a class="dropdown-item" href="?page=orders/view_order&id=<?php echo $row['id'] ?>">Xem đơn hàng</a>
 									<?php if($row['paid'] == 0 && $row['status'] != 4): ?>
 				                    <a class="dropdown-item pay_order" href="javascript:void(0)"  data-id="<?php echo $row['id'] ?>">Đã thanh toán</a>
 									<?php endif; ?>
 				                    <div class="dropdown-divider"></div>
-				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Delete</a>
+				                    <a class="dropdown-item delete_data" href="javascript:void(0)" data-id="<?php echo $row['id'] ?>"><span class="fa fa-trash text-danger"></span> Xóa</a>
 				                  </div>
 							</td>
 						</tr>
@@ -93,14 +93,14 @@
 		</div>
 		</div>
 	</div>
-</div>
+</div>	
 <script>
 	$(document).ready(function(){
 		$('.delete_data').click(function(){
-			_conf("Are you sure to delete this order permanently?","delete_order",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn xóa đơn hàng này vĩnh viễn không?","delete_order",[$(this).attr('data-id')])
 		})
 		$('.pay_order').click(function(){
-			_conf("Are you sure to mark this order as paid?","pay_order",[$(this).attr('data-id')])
+			_conf("Bạn có chắc chắn đánh dấu đơn đặt hàng này là đã thanh toán không?","pay_order",[$(this).attr('data-id')])
 		})
 		$('.table').dataTable();
 	})
