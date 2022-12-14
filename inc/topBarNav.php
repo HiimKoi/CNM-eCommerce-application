@@ -45,7 +45,7 @@
                     </ul>
                     <div class="d-flex align-items-center">
                       <?php if(!isset($_SESSION['userdata']['id'])): ?>
-                        <button class="btn btn-outline-dark ml-2" id="login-btn" type="button"></button>
+                        <button class="btn btn-outline-dark ml-2" id="login-btn" type="button">Đăng nhập</button>
                         <?php else: ?>
                         <a class="text-dark mr-2 nav-link" href="./?p=cart">
                             <i class="bi-cart-fill me-1"></i>

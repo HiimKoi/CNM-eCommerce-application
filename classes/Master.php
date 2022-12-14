@@ -468,7 +468,8 @@ class Master extends DBConnection
 		$filename = uniqid() . ".png";
 		$file = $path . $filename;
 
-		$text = "http://localhost/perfume_shop/admin/orders/view_order.php?view=user&id=19";
+		$text = base_url . "?p=my_account&open_id={$order_id}";
+
 
 		$ecc = 'L';
 		$pixel_Size = 10;
@@ -476,7 +477,7 @@ class Master extends DBConnection
 		QRcode::png($text, $file, $ecc, $pixel_Size, $frame_size);
 
 
-		$this->sendMail("levanlong220700@gmail.com", $filename);
+		$this->sendMail($this->settings->userdata('email') , $filename);
 
 
 		return json_encode($resp);

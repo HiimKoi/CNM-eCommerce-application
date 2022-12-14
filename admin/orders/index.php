@@ -102,7 +102,13 @@
 		$('.pay_order').click(function(){
 			_conf("Bạn có chắc chắn đánh dấu đơn đặt hàng này là đã thanh toán không?","pay_order",[$(this).attr('data-id')])
 		})
-		$('.table').dataTable();
+		$('table').dataTable({
+                language: {
+                    lengthMenu: "Hiển thị _MENU_ dòng mỗi trang",
+                    search: "Tìm kiếm:",
+                    info: "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                }
+            });
 	})
 	function pay_order($id){
 		start_loader();

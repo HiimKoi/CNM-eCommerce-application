@@ -78,7 +78,13 @@
 		$('.delete_data').click(function(){
 			_conf("Bạn có chắc chắn xóa hãng sản phẩm này vĩnh viễn không?","delete_category",[$(this).attr('data-id')])
 		})
-		$('.table').dataTable();
+		$('table').dataTable({
+                language: {
+                    lengthMenu: "Hiển thị _MENU_ dòng mỗi trang",
+                    search: "Tìm kiếm:",
+                    info: "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                }
+            });
 	})
 	function delete_category($id){
 		start_loader();

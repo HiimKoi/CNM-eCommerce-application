@@ -74,7 +74,13 @@
 		$('.delete_data').click(function(){
 			_conf("Bạn có chắc chắn xóa sản phẩm này vĩnh viễn không?","delete_inventory",[$(this).attr('data-id')])
 		})
-		$('.table').dataTable();
+		$('table').dataTable({
+                language: {
+                    lengthMenu: "Hiển thị _MENU_ dòng mỗi trang",
+                    search: "Tìm kiếm:",
+                    info: "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                }
+            });
 	})
 	function delete_inventory($id){
 		start_loader();

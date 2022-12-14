@@ -86,11 +86,61 @@
             }
         })
     }
+    
     $(function(){
         $('.view_order').click(function(){
             uni_modal("Chi tiết đơn hàng","./admin/orders/view_order.php?view=user&id="+$(this).attr('data-id'),'large')
         })
-        $('table').dataTable();
+        $('table').dataTable({
+                language: {
+                    lengthMenu: "Hiển thị _MENU_ dòng mỗi trang",
+                    search: "Tìm kiếm:",
+                    info: "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                }
+            });
 
     })
+    $(document).ready(function() {
+            // get open_id from url
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+            var open_id = urlParams.get('open_id')
+
+
+            if (open_id != null) {
+
+                uni_modal("Chi tiết đơn hàng", "./admin/orders/view_order.php?view=user&id=" + open_id, 'large')
+
+            }
+
+        });
+
+        window.uni_modal = function($title = '', $url = '', $size = "") {
+            start_loader()
+            $.ajax({
+                url: $url,
+                error: err => {
+                    console.log(err)
+                    alert("An error occured")
+                },
+                success: function(resp) {
+                    if (resp) {
+                        $('#uni_modal .modal-title').html($title)
+                        $('#uni_modal .modal-body').html(resp)
+                        if ($size != '') {
+                            $('#uni_modal .modal-dialog').addClass($size + '  modal-dialog-centered')
+                        } else {
+                            $('#uni_modal .modal-dialog').removeAttr("class").addClass("modal-dialog modal-md modal-dialog-centered")
+                        }
+                        $('#uni_modal').modal({
+                            show: true,
+                            backdrop: 'static',
+                            keyboard: false,
+                            focus: true
+                        })
+                        end_loader()
+                    }
+                }
+            })
+        }
 </script>
