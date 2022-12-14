@@ -1,5 +1,16 @@
 <?php
 require_once('../config.php');
+
+require './../libs/mailer/PHPMailer/src/Exception.php';
+require './../libs/mailer/PHPMailer/src/PHPMailer.php';
+require './../libs/mailer/PHPMailer/src/SMTP.php';
+require './../libs/phpqrcode/qrlib.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+
+
 class Master extends DBConnection
 {
 	private $settings;
@@ -451,6 +462,23 @@ class Master extends DBConnection
 			$resp['status'] = 'failed';
 			$resp['err_sql'] = $save_order;
 		}
+
+		$path = base_app . "assets/img/qr/";
+
+		$filename = uniqid() . ".png";
+		$file = $path . $filename;
+
+		$text = "http://localhost/perfume_shop/admin/orders/view_order.php?view=user&id=19";
+
+		$ecc = 'L';
+		$pixel_Size = 10;
+		$frame_size = 10;
+		QRcode::png($text, $file, $ecc, $pixel_Size, $frame_size);
+
+
+		$this->sendMail("levanlong220700@gmail.com", $filename);
+
+
 		return json_encode($resp);
 	}
 	function update_order_status()
@@ -638,6 +666,45 @@ class Master extends DBConnection
 		}
 
 		return json_encode($vnp_Url);
+	}
+
+	function sendMail($to, $image_path)
+	{
+		$send_mail = new PHPMailer(true);
+
+		try {
+
+			$path = base_app . "assets/img/qr/";
+
+			// read file json config
+			$email_config = json_decode(file_get_contents('./../libs/mailer/config.json'), true);
+			//Server settings
+			$send_mail->isSMTP(); // gửi mail SMTP
+			$send_mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
+			$send_mail->SMTPAuth = true; // Enable SMTP authentication
+			$send_mail->Username = $email_config['mFrom']; // SMTP username
+			$send_mail->Password = $email_config['mPass']; // SMTP password
+			$send_mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+			$send_mail->Port = $email_config['port']; // TCP port to connect to
+			//Recipients
+			$send_mail->setFrom('sales@perfume-shop.com', $email_config['mFrom']);
+			$send_mail->addAddress($to); // Add a recipient
+			// Content
+			$send_mail->isHTML(true);   // Set email format to HTML
+			$send_mail->addEmbeddedImage($path . $image_path, 'qr');
+			$send_mail->Subject = '[Perfume Shop - No Reply] - Notification Order';
+			$send_mail->Body = '<p><strong>Ch&agrave;o bạn,</strong></p>
+								<p>Cảm ơn bạn đ&atilde; đặt mua sản phẩm của ch&uacute;ng t&ocirc;i.</p>
+								<p>Bạn c&oacute; thể theo d&otilde;i th&ocirc;ng tin đơn h&agrave;ng của m&igrave;nh tại đ&acirc;y.</p>
+								<p><img src="cid:qr"/></p>
+								<p><br></p>
+								<p><span style="font-size: 12px;">Đ&acirc;y l&agrave; mail tự động. Vui l&ograve;ng kh&ocirc;ng trả lời lại email n&agrave;y.</span></p>';
+
+			$send_mail->send();
+			return true;
+		} catch (Exception $e) {
+			return false;
+		}
 	}
 }
 
