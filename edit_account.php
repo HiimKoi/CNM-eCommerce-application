@@ -38,12 +38,12 @@
                                 <input type="text" name="email" class="form-control form" value="<?php echo $_settings->userdata('email') ?>" required>
                             </div>
                             <div class="form-group">
-                                <label for="password" class="control-label">New Password</label>
-                                <input type="password" name="password" class="form-control form" value="" placeholder="(Enter value to change password)">
+                                <label for="password" class="control-label">Mật khẩu mới</label>
+                                <input type="password" name="password" class="form-control form" value="" placeholder="(Nhập mật khẩu mới)">
                             </div>
                             <div class="form-group">
-                                <label for="cpassword" class="control-label">Current Password</label>
-                                <input type="password" name="cpassword" class="form-control form" value="" placeholder="(Enter value to change password)">
+                                <label for="cpassword" class="control-label">Mật khẩu cũ</label>
+                                <input type="password" name="cpassword" class="form-control form" value="" placeholder="(Nhập mật khẩu cũ)">
                             </div>
                             <div class="form-group d-flex justify-content-end">
                                 <button class="btn btn-dark btn-flat">Cập nhật</button>

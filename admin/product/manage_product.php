@@ -50,7 +50,7 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 <textarea name="author" id="" cols="30" rows="2" class="form-control form no-resize"><?php echo isset($author) ? $author : ''; ?></textarea>
 			</div>
             <div class="form-group">
-				<label for="description" class="control-label">Description</label>
+				<label for="description" class="control-label">Chi tiết</label>
                 <textarea name="description" id="" cols="30" rows="2" class="form-control form no-resize summernote"><?php echo isset($description) ? $description : ''; ?></textarea>
 			</div>
             <div class="form-group">
@@ -155,9 +155,9 @@ if(isset($_GET['id']) && $_GET['id'] > 0){
                 }
             })
             $('#sub_category_id').html(opt)
-            $('#sub_category_id').select2({placeholder:"Please Select here",width:"relative"})
+            $('#sub_category_id').select2({placeholder:"Vui lòng điền mục này",width:"relative"})
         })
-        $('.select2').select2({placeholder:"Please Select here",width:"relative"})
+        $('.select2').select2({placeholder:"Vui lòng điền mục này",width:"relative"})
         if(parseInt("<?php echo isset($category_id) ? $category_id : 0 ?>") > 0){
             console.log('test')
             start_loader()

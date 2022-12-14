@@ -12,7 +12,7 @@
         </button>
     </h3>
         <div class="col-lg-12">
-            <h3 class="text-center">Login</h3>
+            <h3 class="text-center">Đăng nhập</h3>
             <hr>
             <form action="" id="login-form">
                 <div class="form-group">
@@ -20,12 +20,12 @@
                     <input type="email" class="form-control form" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="" class="control-label">Password</label>
+                    <label for="" class="control-label">Mật khẩu</label>
                     <input type="password" class="form-control form" name="password" required>
                 </div>
                 <div class="form-group d-flex justify-content-between">
-                    <a href="javascript:void()" id="create_account">Create Account</a>
-                    <button class="btn btn-primary btn-flat">Login</button>
+                    <a href="javascript:void()" id="create_account">Tạo tài khoản</a>
+                    <button class="btn btn-primary btn-flat">Đăng nhập</button>
                 </div>
             </form>
         </div>
