@@ -75,7 +75,13 @@
 		$('.delete_data').click(function(){
 			_conf("Bạn có chắc chắn xóa không?","delete_package",[$(this).attr('data-id')])
 		})
-		$('.table').dataTable();
+		$('table').dataTable({
+                language: {
+                    lengthMenu: "Hiển thị _MENU_ dòng mỗi trang",
+                    search: "Tìm kiếm:",
+                    info: "Hiển thị _START_ đến _END_ của _TOTAL_ dòng",
+                }
+            });
 	})
 	function delete_package($id){
 		start_loader();
